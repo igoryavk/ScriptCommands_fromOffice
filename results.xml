@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" ?><project>
+  <fileHeader companyName="" productName="CODESYS" productVersion="CODESYS V3.5 SP17 Patch 3" creationDateTime="2023-05-31T14:54:42.8297959" />
+  <contentHeader name="TemplatePLC210_03" version="3.5.17.30" modificationDateTime="2023-02-20T10:37:41.3233486" organization="Production association OWEN">
+    <coordinateInfo>
+      <fbd>
+        <scaling x="1" y="1" />
+      </fbd>
+      <ld>
+        <scaling x="1" y="1" />
+      </ld>
+      <sfc>
+        <scaling x="1" y="1" />
+      </sfc>
+    </coordinateInfo>
+    <addData>
+      <data name="http://www.3s-software.com/plcopenxml/projectinformation" handleUnknown="implementation">
+        <ProjectInformation>
+          <property name="Company" type="string">Production association OWEN</property>
+          <property name="CompiledLibraryCompatibilityVersion" type="string">CODESYS V3.5 SP16 Patch 3</property>
+          <property name="Project" type="string">test time_PLC210</property>
+          <property name="Title" type="string">TemplatePLC210_03</property>
+          <property name="Version" type="version">3.5.17.30</property>
+        </ProjectInformation>
+      </data>
+    </addData>
+  </contentHeader>
+  <types>
+    <dataTypes />
+    <pous>
+      <pou name="PLC_PRG" pouType="program">
+        <interface>
+          <localVars>
+            <variable name="xStart">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="Plc200_1_StartPulse">
+              <type>
+                <derived name="ton" />
+              </type>
+            </variable>
+            <variable name="Plc200_2_StartPulse">
+              <type>
+                <derived name="ton" />
+              </type>
+            </variable>
+            <variable name="StartRise">
+              <type>
+                <derived name="r_trig" />
+              </type>
+            </variable>
+            <variable name="xStart_Plc200_1">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="xStart_Plc200_2">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="Count_value">
+              <type>
+                <WORD />
+              </type>
+              <initialValue>
+                <simpleValue value="3000" />
+              </initialValue>
+            </variable>
+            <variable name="rt_Start">
+              <type>
+                <derived name="R_TRIG" />
+              </type>
+            </variable>
+            <variable name="Reboot_timer_OF">
+              <type>
+                <derived name="TON" />
+              </type>
+            </variable>
+            <variable name="Reboot_timer_ON">
+              <type>
+                <derived name="TON" />
+              </type>
+            </variable>
+            <variable name="Reboot_timer_wait">
+              <type>
+                <derived name="TON" />
+              </type>
+            </variable>
+            <variable name="xReboot_Plc_200_1">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="xReboot_Plc_200_2">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="StartPLC_200_1">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="StartPLC_200_2">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="xRebootStop_Plc200_1">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="xRebootStop_Plc200_2">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="Count">
+              <type>
+                <WORD />
+              </type>
+            </variable>
+            <variable name="timer1">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="timer2">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="timer3">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="WaitTimerElapsed_Plc200_1">
+              <type>
+                <TIME />
+              </type>
+            </variable>
+            <variable name="WaitTimerElapsed_Plc200_2">
+              <type>
+                <TIME />
+              </type>
+            </variable>
+            <variable name="modbusCounter_Plc200_1">
+              <type>
+                <WORD />
+              </type>
+            </variable>
+            <variable name="modbusCounter_Plc200_2">
+              <type>
+                <WORD />
+              </type>
+            </variable>
+            <variable name="modbus1970Cnt_Plc200_1">
+              <type>
+                <WORD />
+              </type>
+            </variable>
+            <variable name="modbus1970Cnt_Plc200_2">
+              <type>
+                <WORD />
+              </type>
+            </variable>
+            <variable name="Plc200_1_Restarter">
+              <type>
+                <derived name="Plc_Restarter" />
+              </type>
+            </variable>
+            <variable name="Plc200_2_Restarter">
+              <type>
+                <derived name="Plc_Restarter" />
+              </type>
+            </variable>
+          </localVars>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">StartRise(clk:=xStart);
+Plc200_1_StartPulse(in:=xStart_Plc200_1,pt:=T#500MS);
+
+Plc200_2_StartPulse(in:=xStart_Plc200_1,pt:=T#500MS);
+
+IF StartRise.q THEN
+	xStart_Plc200_1:=TRUE;
+	xStart_Plc200_2:=TRUE;
+END_IF 
+
+IF Plc200_1_StartPulse.Q THEN
+    xStart_Plc200_1:=TRUE;
+	  
+END_IF  
+
+IF Plc200_2_StartPulse.Q THEN
+    xStart_Plc200_2:=TRUE;
+	  
+END_IF  
+
+Plc200_1_Restarter(xStart:=xStart_Plc200_1,Count_value:=Count_value,xRebootStop:=xRebootStop_Plc200_1,StartPLC=&gt;StartPLC_200_1,xReboot=&gt;xReboot_Plc_200_1,WaitTimerElapsed=&gt;WaitTimerElapsed_Plc200_1);
+	
+Plc200_2_Restarter(xStart:=xStart_Plc200_2,Count_value:=Count_value,xRebootStop:=xRebootStop_Plc200_2,StartPLC=&gt;StartPLC_200_2,xReboot=&gt;xReboot_Plc_200_2,WaitTimerElapsed=&gt;WaitTimerElapsed_Plc200_2);</xhtml>
+          </ST>
+        </body>
+        <addData />
+      </pou>
+    </pous>
+  </types>
+  <instances>
+    <configurations />
+  </instances>
+</project>

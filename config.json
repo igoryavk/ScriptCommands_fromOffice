@@ -1,0 +1,37 @@
+[
+ {
+         "Name": "Export to File",
+         "Desc": "Exporting to xml file",
+         "Icon": "icon.ico",
+         "Path": "test.py"
+ }
+ ,
+ {
+         "Name": "List of Objects",
+         "Desc": "Show list of objects",
+         "Icon": "icon2.ico",
+         "Path": "list_objects.py"
+ }
+ ,
+ {
+		"Name": "Python_Script",
+		"Desc": "Test Iron Python",
+		"Icon": "python.ico",
+		"Path": "pyton.py"
+ }
+ ,
+ {
+		"Name": "Import_POU",
+		"Desc": "Script for import POUs",
+		"Icon": "import.ico",
+		"Path": "import.py"
+ }
+ ,
+ {
+		"Name": "Import_PLCopen",
+		"Desc": "Script for import POUs",
+		"Icon": "importPlcOpen.ico",
+		"Path": "importPlcOpen.py"
+ }
+ 
+]
