@@ -1,37 +1,16 @@
 [
  {
-         "Name": "Export to File",
-         "Desc": "Exporting to xml file",
+         "Name": "Disassemble XML",
+         "Desc": "Disassembling POUs",
          "Icon": "icon.ico",
-         "Path": "test.py"
+         "Path": "disassemble.py"
  }
  ,
  {
-         "Name": "List of Objects",
+         "Name": "Assemble XML",
          "Desc": "Show list of objects",
-         "Icon": "icon2.ico",
-         "Path": "list_objects.py"
- }
- ,
- {
-		"Name": "Python_Script",
-		"Desc": "Test Iron Python",
-		"Icon": "python.ico",
-		"Path": "pyton.py"
- }
- ,
- {
-		"Name": "Import_POU",
-		"Desc": "Script for import POUs",
-		"Icon": "import.ico",
-		"Path": "import.py"
- }
- ,
- {
-		"Name": "Import_PLCopen",
-		"Desc": "Script for import POUs",
-		"Icon": "importPlcOpen.ico",
-		"Path": "importPlcOpen.py"
+         "Icon": "import.ico",
+         "Path": "assemble.py"
  }
  
 ]
