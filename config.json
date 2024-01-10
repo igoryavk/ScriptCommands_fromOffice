@@ -2,14 +2,14 @@
  {
          "Name": "Disassemble XML",
          "Desc": "Disassembling POUs",
-         "Icon": "icon.ico",
+         "Icon": "disasseble.ico",
          "Path": "disassemble.py"
  }
  ,
  {
          "Name": "Assemble XML",
          "Desc": "Show list of objects",
-         "Icon": "import.ico",
+         "Icon": "assemble.ico",
          "Path": "assemble.py"
  }
  
