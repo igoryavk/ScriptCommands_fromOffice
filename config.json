@@ -2,7 +2,7 @@
  {
          "Name": "Disassemble XML",
          "Desc": "Disassembling POUs",
-         "Icon": "disasseble.ico",
+         "Icon": "disassemble.ico",
          "Path": "disassemble.py"
  }
  ,
