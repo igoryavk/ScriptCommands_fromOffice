@@ -12,5 +12,11 @@
          "Icon": "assemble.ico",
          "Path": "assemble.py"
  }
- 
+ ,
+ {
+		 "Name": "Test Codesys Python",
+		 "Icon": "test.ico",
+		 "Path": "test.py"
+
+ }
 ]
