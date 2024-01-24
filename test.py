@@ -1,5 +1,5 @@
 import inspect
-
+import subprocess
 class MyReporter(ExportReporter):
     def error(self, obj, message):
         print("Error from {0}: {1}".format(obj,message))
@@ -20,11 +20,32 @@ class MyReporter(ExportReporter):
         """
         pass
 
+class MyImportReporter(ImportReporter):
+    def error(self, message):
+        print("Error from {0}:".format(message))
+
+
+    def warning(self,  message):
+        print("Warning from {0}: {1}".format(obj, message))
+        
+    @property
+    def aborting(self):
+        """Gets a boolean value indicating whether importing should be aborted or not.
+
+        :rtype: bool
+
+        """
+        print("Something went wrong")
+
+
 
 toplevel_objs=projects.primary.get_children()
 my_reporter=MyReporter()
+import_reporter=MyImportReporter()
 print("This is a list of Codesys Objects:")
-projects.primary.find("Device")[0].export_xml(path="D://parse//Device-1.xml",reporter=my_reporter,recursive=True,export_folder_structure=True)
+projects.primary.close()
+pr=projects.create("NewProject")
+pr.import_xml(dataOrPath="D://parse//output.xml",reporter=import_reporter)
 # for item in toplevel_objs:
 #
 #     #item.export_xml(path="D://parse//{0}.xml".format(item.get_name()),reporter=my_reporter,recursive=True)
