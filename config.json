@@ -1,22 +1,8 @@
 [
  {
-         "Name": "Disassemble XML",
-         "Desc": "Disassembling POUs",
-         "Icon": "disassemble.ico",
-         "Path": "disassemble.py"
- }
- ,
- {
-         "Name": "Assemble XML",
-         "Desc": "Show list of objects",
-         "Icon": "assemble.ico",
-         "Path": "assemble.py"
- }
- ,
- {
-		 "Name": "Test Codesys Python",
-		 "Icon": "test.ico",
-		 "Path": "test.py"
-
+         "Name": "Discover ObjectTree",
+         "Desc": "ObjectTree",
+         "Icon": "test.ico",
+         "Path": "test.py"
  }
 ]

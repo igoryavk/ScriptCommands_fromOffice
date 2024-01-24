@@ -40,12 +40,7 @@ class MyImportReporter(ImportReporter):
 
 
 toplevel_objs=projects.primary.get_children()
-my_reporter=MyReporter()
-import_reporter=MyImportReporter()
-print("This is a list of Codesys Objects:")
-projects.primary.close()
-pr=projects.create("NewProject")
-pr.import_xml(dataOrPath="D://parse//output.xml",reporter=import_reporter)
+print(toplevel_objs)
 # for item in toplevel_objs:
 #
 #     #item.export_xml(path="D://parse//{0}.xml".format(item.get_name()),reporter=my_reporter,recursive=True)
