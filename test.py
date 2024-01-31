@@ -39,8 +39,20 @@ class MyImportReporter(ImportReporter):
 
 
 
-toplevel_objs=projects.primary.get_children()
-print(toplevel_objs)
+device=projects.primary.find("Device",recursive=True)
+
+tree_obj=device[0].get_children(recursive=True)
+exclude_list=["OwenCloud","Buzzer","Drives","Screen","Network","Debug","RTC","Info","Watchdog"]
+list_xml=[]
+for obj in tree_obj:
+    for exclude in exclude_list:
+        if obj.get_name() != exclude:
+            list_xml.append(obj)
+            break
+for obj in list_xml:
+    print(obj.get_name())
+reporter=MyReporter()
+projects.primary.export_xml(objects=list_xml,reporter=reporter,path="D://parse//new.xml",recursive=True)
 # for item in toplevel_objs:
 #
 #     #item.export_xml(path="D://parse//{0}.xml".format(item.get_name()),reporter=my_reporter,recursive=True)
